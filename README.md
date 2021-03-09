@@ -1,4 +1,4 @@
-# RogueProj
+# Rogue Project
 
 Based on the Rogue character class in Dungeons and Dragons
 
