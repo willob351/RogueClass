@@ -1,0 +1,77 @@
+class Spells():
+  
+  #this isnt actually the class for the project, it just helps with making the original intended class below better
+  # you can basically ignore this class
+  def burningHands():
+    '''casts Burning Hands, attacking creatures in a 15 ft radius'''
+    import random
+    damage=random.randint(1,6)+random.randint(1,6)+random.randint(1,6)  
+    toHit = input("Did enemy fail saving throw? ")
+    if toHit == "y" or toHit =="Y":
+      print("You did "+ str(damage) +" fire damage")
+    else:
+      print("You did "+str(damage/2) +" fire damage")
+
+  def chromaticOrb():
+    '''casts Chromatic Orb, a ranged attack with type player choice - lightning, fire, cold, poison, acid, or thunder.'''
+    damage=random.randint(1,8)+random.randint(1,8)+random.randint(1,8)
+
+  def boomingBlade(self,proficiencybonus,level):
+    '''you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails.
+    On a hit, the target suffers the attack's normal effects, and it becomes sheathed in booming energy until the start of your next turn. 
+    If the target willingly moves be- fore then, it immediately takes 1d8 thunder damage, and the spell ends.'''
+    import random
+    roll=random.randint(1,20)
+    damage=random.randint(1,6)+int(proficiencybonus)
+    spelldam = random.randint(1,8)
+    #damage scales and stacks with levels
+    if (level > 5):
+      damage += random.randint(1,6)
+      spelldam += random.randint(1,8)
+    if (level > 11):
+      damage += random.randint(1,6)
+      spelldam += random.randint(1,8)
+    if (level > 17):
+      damage += random.randint(1,6)
+      spelldam += random.randint(1,8)
+    
+    toHit = input("You rolled "+str(roll)+" to hit, did it land? Y/N? ")
+    if toHit == "y" or toHit =="Y":
+      print("You did "+ str(damage) +" piercing damage. Target cannot move until your next move, or will recieve "+str(spelldam)+" thunder damage")
+    else:
+      print("well then, nevermind")
+  
+  def crownOfMadness(self,spellSave):
+    '''can cast on any humanoid within 120 feet, causing them to attack any target of the caster's choice.
+    You must use your actiion to maintain this spell each turn'''
+    print("Target must make a Wisdom saving throw above "+str(spellSave)+" or become charmed")
+  
+  def phantasmalForce(self, spellSave):
+    '''2nd level illusion. Creates an illusion so convincing that it can deal physic damage'''
+    print("Target must make a Intelligence saving throw above "+str(spellSave)+" or become charmed")
+
+  def confusion(self, spellSave):
+    '''This spell assaults and twists creatures’ minds, spawning delusions and provoking uncontrolled action. 
+    Each creature in a 10-­foot-­radius, centered on a point within 100ft of the caster, must succeed on a Wisdom saving throw when you cast this spell or be affected by it.'''
+    print("Targets must make a Wisdom saving throw above "+str(spellSave)+" or become confused")
+  
+  def greaterInvisibility(self):
+    '''4th level illusion. You or a creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target's person.'''
+    print("Target is invisible for 1 minute")
+
+  def fear(self, spellSave):
+    '''Creatures within 30ft of the caster become afraid, and flee in any direction.'''
+    print("Targets must make a Wisdom saving throw above "+str(spellSave)+" or become afraid")
+  
+  def hypnoticPattern(self, spellSave):
+    '''3rd level illusion. A 30-foot cube of swirling light is created, within 120ft of the caster. All who see it are transfixed'''
+    print("Targets must make a Wisdom saving throw above "+str(spellSave)+" or become charmed and incapacitated. The trace is broken if they are hurt or otherwise distracted")
+
+  def sleep(self, spellSave):
+    import random
+    roll=random.randint(1,8)+random.randint(1,8)+random.randint(1,8)+random.randint(1,8)+random.randint(1,8)
+    print("Targets that have current hit point of less than "+str(roll)+"must make a Wisdom saving throw above "+str(spellSave)+" or fall asleep")
+
+  def silentImage(self, spellSave):
+    '''lvl. 1  illusion. You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 15-­foot cube.'''
+    print("you create an visual illusion no bigger than 15ft. Someone must make an Intelligence saving throw of "+str(spellSave)+" to realise it is an illusion")
